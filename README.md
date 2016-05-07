@@ -16,9 +16,9 @@ Gitを超便利に使う
 
 このような処理を実行するGitコマンドを教えてくれる
 
-### 方法
+### 利用例
 
-* ExpandHelpを利用
+* [ExpandHelp](https://github.com/masui/expand_ruby)を利用
 * 「example 3 変化」のような文字列を指定して```githelp```コマンドを起動すると以下のような解が提示される
 
     ```

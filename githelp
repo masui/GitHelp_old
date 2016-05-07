@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+require 're_expand'
+
+require './lib/files'
+
+g = ExpandRuby::Generator.new
+g.add "(#{files().join('|')})というファイルを調べる", 'git show #{$1}'
+
+res = g.generate(' ')
+res[0].each { |a| # ambig 0
+  puts a[0]
+  puts a[1]
+}
+
