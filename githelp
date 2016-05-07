@@ -5,12 +5,18 @@ require 're_expand'
 
 require './lib/files'
 
-g = ExpandRuby::Generator.new
-g.add "(#{files().join('|')})というファイルを調べる", 'git show #{$1}'
+pat = " #{ARGV.join(' ')} "
 
-res = g.generate(' ')
-res[0].each { |a| # ambig 0
-  puts a[0]
+g = ExpandRuby::Generator.new
+#
+# ヘルプエントリを沢山用意する
+#
+g.add "(#{files().join('|')})というファイルを(表示する|見る)", '% git show head:#{$1}'
+g.add "管理されているファイルのリストを(表示する|見る)", '% git ls-files'
+
+res = g.generate pat
+res[0].each_with_index { |a,i| # ambig 0
+  puts "#{i}: #{a[0]}"
   puts a[1]
 }
 
