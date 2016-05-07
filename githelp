@@ -2,21 +2,20 @@
 # coding: utf-8
 
 require 're_expand'
-require 'json'
-
 require './lib/files'
+
+datadir = "#{File.dirname($0)}/data"
 
 pat = " #{ARGV.join(' ')} "
 
-g = ExpandRuby::Generator.new # re_expandのジェネレータ
-
 entries = []
-Dir.open('./data').each { |file|
-  next unless File.file?("./data/#{file}")
+Dir.open(datadir).each { |file|
+  next unless File.file?("#{datadir}/#{file}")
   next if file =~ /~$/
-  entries += eval File.read("./data/#{file}")
+  entries += eval File.read("#{datadir}/#{file}")
 }
 
+g = ExpandRuby::Generator.new # re_expandのジェネレータ
 entries.each { |entry|
   g.add entry[0], entry[1]
 }
