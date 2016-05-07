@@ -16,7 +16,10 @@ require './lib/params'
 
 datadir = "#{File.dirname($0)}/data"
 
-pat = " #{ARGV.join(' ')} "
+#args = ARGV.map { |arg|
+#  arg.sub(/^['"]/,'').sub(/['"]$/,'')
+#}
+pat = " #{args.join(' ')} "
 
 entries = []
 Dir.open(datadir).each { |file|

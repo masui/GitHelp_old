@@ -1,5 +1,7 @@
 # coding: utf-8
 #
 def args
-  ARGV
+  ARGV.map { |arg|
+    arg.sub(/^['"]/,'').sub(/['"]$/,'')
+  }
 end
