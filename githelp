@@ -11,6 +11,7 @@
 
 require 're_expand'
 require './lib/files'
+require './lib/args'
 
 datadir = "#{File.dirname($0)}/data"
 
