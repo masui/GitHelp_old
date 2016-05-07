@@ -2,6 +2,7 @@
 # coding: utf-8
 
 require 're_expand'
+require 'json'
 
 require './lib/files'
 
@@ -9,14 +10,16 @@ pat = " #{ARGV.join(' ')} "
 
 g = ExpandRuby::Generator.new # re_expandのジェネレータ
 
-#
-# ヘルプエントリを沢山用意する
-#
-g.add "(#{files.join('|')})というファイルを(表示する|見る)", '% git show head:#{$1}'
-g.add "(Gitで?)管理されているファイルを(表示する|見る|リストする)", '% git ls-files'
-g.add "現在の状況を(知る|見る)", '% git status'
-g.add "(#{files.join('|')})というファイルの(1|2|3|4|5)日前からの変化を(表示する|見る)",
-      'git log --since="#{$2} days ago" --oneline | tail -1 | ruby -lane \'puts $_.split(/ /).first\' | xargs -J xxx git diff xxx #{$1}'
+entries = []
+Dir.open('./data').each { |file|
+  next unless File.file?("./data/#{file}")
+  next if file =~ /~$/
+  entries += eval File.read("./data/#{file}")
+}
+
+entries.each { |entry|
+  g.add entry[0], entry[1]
+}
 
 res = g.generate pat
 res[0].each_with_index { |a,i| # ambig 0
