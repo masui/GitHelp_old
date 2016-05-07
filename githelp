@@ -21,7 +21,8 @@ entries = []
 Dir.open(datadir).each { |file|
   next unless File.file?("#{datadir}/#{file}")
   next if file !~ /\.rb$/
-  entries += eval File.read("#{datadir}/#{file}")
+  a = eval File.read("#{datadir}/#{file}")
+  entries += a if a
 }
 
 g = ExpandRuby::Generator.new # re_expandのジェネレータ
