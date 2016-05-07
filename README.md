@@ -1,24 +1,19 @@
 # GitHelp
 
-Gitを超便利に使う
+Gitを超便利に使うシステム
 
 ### 解決したい問題
 
 * Gitの使い方がさっぱりわからないこと
 * ちょっとしたことでもどうコマンドを使えば良いのかわからないこと
 
-### 例
-
-以下のようなちょっとした仕事の解決方法を教えてくれる
+以下のような処理をGitでどうやって実行するかを教えてくれる
 
 * example.txtは3日前からどう変わった?
 * package.jsonからcoffeeという名前が消えたのはいつ?
 
-このような処理を実行するGitコマンドを教えてくれる
-
 ### 利用例
 
-* [ExpandHelp](https://github.com/masui/expand_ruby)を利用
 * 「example 3 変化」のような文字列を指定して```githelp```コマンドを起動すると以下のような解が提示される
 
     ```
@@ -31,7 +26,12 @@ Gitを超便利に使う
     ....
     %
     ```
-   
+
+### 実装
+
+* [ExpandHelp](https://github.com/masui/expand_ruby)を利用
+* [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に問題パタンと解決コマンドを書く
+
     
 
   
