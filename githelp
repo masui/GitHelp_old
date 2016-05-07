@@ -7,16 +7,19 @@ require './lib/files'
 
 pat = " #{ARGV.join(' ')} "
 
-g = ExpandRuby::Generator.new
+g = ExpandRuby::Generator.new # re_expandのジェネレータ
+
 #
 # ヘルプエントリを沢山用意する
 #
-g.add "(#{files().join('|')})というファイルを(表示する|見る)", '% git show head:#{$1}'
+g.add "(#{files.join('|')})というファイルを(表示する|見る)", '% git show head:#{$1}'
 g.add "管理されているファイルのリストを(表示する|見る)", '% git ls-files'
+g.add "(#{files.join('|')})というファイルの(1|2|3|4|5)日前からの変化を(表示する|見る)",
+      'git log --since="#{$2} days ago" --oneline | tail -1 | ruby -lane \'puts $_.split(/ /).first\' | xargs -J xxx git diff xxx #{$1}'
 
 res = g.generate pat
 res[0].each_with_index { |a,i| # ambig 0
-  puts "#{i}: #{a[0]}"
+  puts "[#{i}] #{a[0]}"
   puts a[1]
 }
 
