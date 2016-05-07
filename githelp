@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 # coding: utf-8
+#
+# GitHelp: ExpandHelpでGitを使いこなす
+#
+#  % githelp README 3 変化
+#  [0] README.mdというファイルの3日前からの変化を表示する
+#   git log --since="3 days ago" --oneline | tail -1 | ruby -lane 'puts $_.split(/ /).first' | xargs -J xxx git diff xxx README.md
+#  %
+#
 
 require 're_expand'
 require './lib/files'
@@ -11,7 +19,7 @@ pat = " #{ARGV.join(' ')} "
 entries = []
 Dir.open(datadir).each { |file|
   next unless File.file?("#{datadir}/#{file}")
-  next if file =~ /~$/
+  next if file !~ /\.rb$/
   entries += eval File.read("#{datadir}/#{file}")
 }
 
