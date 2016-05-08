@@ -25,6 +25,18 @@
     "(#{days})日前から(#{files.join('|')})というファイル(の変化|が変わったところ)を(表示する|見る)",
     'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
   ],
+  [
+    "#{mins}分前の「(#{files.join('|')})」ファイルと現在のものを比較する",
+    'git log --until="#{$1} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
+  ],
+  [
+    "#{hours}時間前の「(#{files.join('|')})」ファイルと現在のものを比較する",
+    'git log --until="#{$1} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
+  ],
+  [
+    "#{days}日前の「(#{files.join('|')})」ファイルと現在のものを比較する",
+    'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
+  ],
 
   #######
   [
