@@ -24,6 +24,7 @@ require "#{progdir}/lib/args"
 require "#{progdir}/lib/params"
 require "#{progdir}/lib/branches"
 require "#{progdir}/lib/changes"
+require "#{progdir}/lib/glossary"
 
 datadir = "#{progdir}/data"
 
