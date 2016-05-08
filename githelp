@@ -20,6 +20,7 @@ require "#{progdir}/lib/files"
 require "#{progdir}/lib/args"
 require "#{progdir}/lib/params"
 require "#{progdir}/lib/branches"
+require "#{progdir}/lib/changes"
 
 datadir = "#{progdir}/data"
 

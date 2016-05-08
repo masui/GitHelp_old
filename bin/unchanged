@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+progpath = $0
+progpath = File.expand_path(progpath)
+progdir = "#{File.dirname(progpath)}"
+
+require "#{progdir}/../lib/files"
+require "#{progdir}/../lib/changes"
+
+puts unchanged(ARGV[0])
