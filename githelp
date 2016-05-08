@@ -59,10 +59,7 @@ if list.length > 0 then
     if i >= 0 && i < list.length then
       cmd = list[i]
       puts cmd
-      if cmd =~ /^bin/
-        cmd = "#{progdir}/#{cmd}"
-      end
-      system cmd
+      system "PATH=$PATH:#{progdir}/bin #{cmd}"
     end
   end
 end
