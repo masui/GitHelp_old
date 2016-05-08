@@ -2,27 +2,27 @@
 
 [
   [
-    "(#{files.join('|')})というファイルを(#{mins})分前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルを(#{mins})分前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
     'git log --until="#{$2} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
-    "(#{files.join('|')})というファイルを(#{hours})時間前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルを(#{hours})時間前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
     'git log --until="#{$2} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
-    "(#{files.join('|')})というファイルを(#{days})日前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルを(#{days})日前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
     'git log --until="#{$2} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
-    "(#{mins})分前から(#{files.join('|')})というファイル(の変化|が変わったところ)を(表示する|見る)",
+    "(#{mins})分前から「(#{files.join('|')})」ファイル(の変化|が変わったところ)を(表示する|見る)",
     'git log --until="#{$1} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
   ],
   [
-    "(#{hours})時間前から(#{files.join('|')})というファイル(の変化|が変わったところ)を(表示する|見る)",
+    "(#{hours})時間前から「(#{files.join('|')})」ファイル(の変化|が変わったところ)を(表示する|見る)",
     'git log --until="#{$1} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
   ],
   [
-    "(#{days})日前から(#{files.join('|')})というファイル(の変化|が変わったところ)を(表示する|見る)",
+    "(#{days})日前から「(#{files.join('|')})」ファイル(の変化|が変わったところ)を(表示する|見る)",
     'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
   ],
   [
@@ -40,15 +40,15 @@
 
   #######
   [
-    "(#{files.join('|')})というファイルをひとつ前のコミットと比較する",
+    "「(#{files.join('|')})」ファイルをひとつ前のコミットと比較する",
     'git diff HEAD^ #{$1}'
   ],
   [
-    "(#{files.join('|')})というファイルをふたつ前のコミットと比較する",
+    "「(#{files.join('|')})」ファイルをふたつ前のコミットと比較する",
     'git diff HEAD^^ #{$1}'
   ],
   [
-    "(#{files.join('|')})というファイルをひとつ前のバージョンと比較する",
+    "「(#{files.join('|')})」ファイルをひとつ前のバージョンと比較する",
     'git log --oneline #{$1} | head -2 | tail -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
 
