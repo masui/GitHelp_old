@@ -16,6 +16,10 @@
     "「(#{branches.join('|')})」ブランチを削除する",
     'git branch -d #{$1}'
   ],
+  [
+    "「xyz」ブランチを作成する",
+    '# git branch xyz'
+  ],
 ] +
 if params.length > 0
   [
