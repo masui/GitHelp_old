@@ -35,13 +35,31 @@ entries.each { |entry|
   g.add entry[0], entry[1]
 }
 
-listed = {}
+list = []
+ind = 0
 res = g.generate pat
-res[0].each_with_index { |a,i| # ambig 0
-  unless listed[a[1]]
-    puts "[#{i}] #{a[0]}"
+res[0].each { |a| # ambig 0
+  unless list.member?(a[1])
+    puts "[#{ind}] #{a[0]}"
     puts a[1]
-    listed[a[1]] = true
+    list[ind] = a[1]
+    ind += 1
   end
 }
+
+print "実行するコマンドの番号を入力して下さい > "
+s = STDIN.readline
+if s =~ /[0-9]/ then
+  i = s.to_i
+  if i >= 0 && i < list.length then
+    puts list[i]
+    print "実行しますか? > "
+    s = STDIN.readline
+    if s =~ /^y/i then
+      system list[i]
+    end
+  end
+end
+
+
 
