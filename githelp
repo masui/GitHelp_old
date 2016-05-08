@@ -10,16 +10,19 @@
 #
 
 require 're_expand'
-require './lib/files'
-require './lib/args'
-require './lib/params'
-require './lib/branches'
+progpath = $0
+if File.symlink?(progpath)
+  progpath = File.readlink(progpath)
+end
+progdir = "#{File.dirname(progpath)}"
 
-datadir = "#{File.dirname($0)}/data"
+require "#{progdir}/lib/files"
+require "#{progdir}/lib/args"
+require "#{progdir}/lib/params"
+require "#{progdir}/lib/branches"
 
-#args = ARGV.map { |arg|
-#  arg.sub(/^['"]/,'').sub(/['"]$/,'')
-#}
+datadir = "#{progdir}/data"
+
 pat = " #{args.join(' ')} "
 
 entries = []
@@ -41,21 +44,19 @@ res = g.generate pat
 res[0].each { |a| # ambig 0
   unless list.member?(a[1])
     puts "[#{ind}] #{a[0]}"
-    puts a[1]
+    puts "   " + a[1]
     list[ind] = a[1]
     ind += 1
   end
 }
 
-print "実行するコマンドの番号を入力して下さい > "
-s = STDIN.readline
-if s =~ /[0-9]/ then
-  i = s.to_i
-  if i >= 0 && i < list.length then
-    puts list[i]
-    print "実行しますか? > "
-    s = STDIN.readline
-    if s =~ /^y/i then
+if list.length > 0 then
+  print "実行するコマンドの番号を入力して下さい > "
+  s = STDIN.readline
+  if s =~ /[0-9]/ then
+    i = s.to_i
+    if i >= 0 && i < list.length then
+      puts list[i]
       system list[i]
     end
   end
