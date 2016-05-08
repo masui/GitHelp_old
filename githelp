@@ -9,6 +9,9 @@
 #  %
 #
 
+# 変更されたファイルをすべてコミットする
+# 変更されたファイルをリストする
+
 require 're_expand'
 progpath = $0
 if File.symlink?(progpath)
