@@ -13,6 +13,7 @@ require 're_expand'
 require './lib/files'
 require './lib/args'
 require './lib/params'
+require './lib/branches'
 
 datadir = "#{File.dirname($0)}/data"
 
@@ -34,9 +35,13 @@ entries.each { |entry|
   g.add entry[0], entry[1]
 }
 
+listed = {}
 res = g.generate pat
 res[0].each_with_index { |a,i| # ambig 0
-  puts "[#{i}] #{a[0]}"
-  puts a[1]
+  unless listed[a[1]]
+    puts "[#{i}] #{a[0]}"
+    puts a[1]
+    listed[a[1]] = true
+  end
 }
 
