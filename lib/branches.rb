@@ -7,4 +7,14 @@ def branches
   }
 end
 
+def branch
+  `git branch`.split(/\n/).map { |line|
+    line.chomp!
+    if line =~ /^\* (.*)$/ then
+      return $1
+    end
+  }
+  ''
+end
+
 
