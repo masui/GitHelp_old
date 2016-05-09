@@ -7,9 +7,9 @@
 # git ls-files で取得すべきか?
 
 def files
-  # files = Dir.glob("*").find_all { |file|
-  #   file !~ /~$/ &&
-  #     file !~ /^\#/
-  # }
-  files = `git ls-files`.split
+  if ARGV.length > 0
+    `git ls-files`.split
+  else
+    ['##DUMMY##']
+  end
 end

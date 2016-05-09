@@ -10,5 +10,5 @@ def args(argv=ARGV)
       a << arg.sub(/^['"]/,'').sub(/['"]$/,'').sub('「','').sub('」','')
     end
   }
-  a.length > 0 ? a : ['xxxxx']
+  a.length > 0 ? a : ['']
 end
