@@ -1,5 +1,5 @@
 .PHONY: test
-test: install
+test:
 	cd test; make
 install:
 	bundle install
