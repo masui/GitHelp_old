@@ -10,6 +10,6 @@ def files
   if ARGV.length > 0
     `git ls-files`.split
   else
-    ['##DUMMY##']
+    ['##DUMMYFILE##']
   end
 end
