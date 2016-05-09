@@ -16,19 +16,33 @@ Gitの難しいコマンドを簡単に指定する
 
 ### 利用例
 
-* ```example``` ```3日``` ```変化``` のような引数を指定して```githelp```コマンドを起動すると以下のような解が提示される
+* ```README``` ```8時間``` ```比較``` のような引数を指定して```githelp```コマンドを起動すると以下のような解が提示される
+* 番号を選んで即実行可能
 
 ```
-% githelp example 3日 変化
-(1) example.txtの3日前からの変化を調べる
-git log --since='3 days ago' --oneline \
-| tail -1 | ruby -lane 'puts $_.split(/ /).first' \
-| xargs -J xxx git diff xxx example.txt
-(2) .....
-....
-%
+$ githelp README 8時間 比較
+/Users/masui/GitHelp/lib/branches.rb:4: warning: Insecure world writable dir /tmp in PATH, mode 041777
+[0] 「README.md」ファイルを8時間前のものと比較する
+   git log --until="8 hours ago" --oneline | head -1 | awk '{print $1}' | xargs -J xxx git diff xxx README.md
+[1] 「README.md」ファイルを18時間前のものと比較する
+   git log --until="18 hours ago" --oneline | head -1 | awk '{print $1}' | xargs -J xxx git diff xxx README.md
+実行するコマンドの番号を入力して下さい > 0
+git log --until="8 hours ago" --oneline | head -1 | awk '{print $1}' | xargs -J xxx git diff xxx README.md
+diff --git a/README.md b/README.md
+index e3e6c51..c260304 100644
+--- a/README.md
++++ b/README.md
+@@ -4,8 +4,8 @@ Gitの難しいコマンドを簡単に指定する
+ 
+ ### 解決したい問題
+ 
+-* Gitの使い方<E3><81><8C>さっぱりわからないこと
+-* ちょっとしたことでもどうコマンドを使えば良いのかわからないこと
++* Gitの使い方<E3><82><84>引数指定方法<E3><81><8C>さっぱりわからないこと
++* ちょっとしたことでもどうコマンドを組み合わせれば良いのかわからないこと
+ 
+
 ```
-* 番号を選んで即座に実行可能
 
 
 ### 実装
