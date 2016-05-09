@@ -2,15 +2,27 @@
 
 [
   [
-    "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})分前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})分前のものと比較する",
     'git log --until="#{$2} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
-    "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})時間前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルが(#{numbers.join('|')})分前から(変化した|変わった)ところを(表示する|見る)",
+    'git log --until="#{$2} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
+  ],
+  [
+    "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})時間前のものと比較する",
     'git log --until="#{$2} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
-    "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})日前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルが(#{numbers.join('|')})時間前から(変化した|変わった)ところを(表示する|見る)",
+    'git log --until="#{$2} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
+  ],
+  [
+    "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})日前のものと比較する",
+    'git log --until="#{$2} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
+  ],
+  [
+    "「(#{files.join('|')})」ファイルが(#{numbers.join('|')})日前から(変化した|変わった)ところを(表示する|見る)",
     'git log --until="#{$2} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
