@@ -3,16 +3,8 @@
 #
 # GitHelp: ExpandHelpでGitを使いこなす
 #
-#  % githelp README 3 変化
-#  [0] README.mdというファイルの3日前からの変化を表示する
-#   git log --since="3 days ago" --oneline | tail -1 | ruby -lane 'puts $_.split(/ /).first' | xargs -J xxx git diff xxx README.md
-#  %
-#
 
-# 変更されたファイルをすべてコミットする
-# 変更されたファイルをリストする
-# ファイルをリネームする
-# 3回以上コミットされたファイルをリストする
+# 追加すべきデータはdata.txtに書く
 
 progpath = $0
 if File.symlink?(progpath)
