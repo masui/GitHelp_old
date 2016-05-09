@@ -1,3 +1,3 @@
-all:
+test:
 	ruby test.rb
 
