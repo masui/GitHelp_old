@@ -20,7 +20,23 @@ Gitの難しいコマンドを簡単に指定する
 * 番号を選んで即実行可能
 
 ```
-$ githelp README 8時間 比較
+$ githelp | head -12
+[0] ブランチをリストする
+   % git branch
+[1] 最新の状態に戻す
+   % git checkout master
+[2] 直前のコミットのコメントを修正する
+   % git commit --amend
+[3] 直前のコミットを取り消す
+   % git reset --soft HEAD^
+[4] 直前のコミットを完全に取り消す
+   % git reset --hard HEAD^
+[5] 変更されたファイルをリストする
+   % git status
+[6] 1分前の状態に一時的に戻す
+   % git log --until="1 minutes ago" --oneline | head -1 | awk '{print $1}' | xargs -J xxx git checkout xxx
+
+$ githelp -i README 8時間 比較
 [0] 「README.md」ファイルを8時間前のものと比較する
    git log --until="8 hours ago" --oneline | head -1 | awk '{print $1}' | xargs -J xxx git diff xxx README.md
 [1] 「README.md」ファイルを18時間前のものと比較する
@@ -40,7 +56,6 @@ index e3e6c51..c260304 100644
 +* Gitの使い方<E3><82><84>引数指定方法<E3><81><8C>さっぱりわからないこと
 +* ちょっとしたことでもどうコマンドを組み合わせれば良いのかわからないこと
  
-
 ```
 
 
