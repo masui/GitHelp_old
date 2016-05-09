@@ -10,10 +10,5 @@ def args(argv=ARGV)
       a << arg.sub(/^['"]/,'').sub(/['"]$/,'').sub('「','').sub('」','')
     end
   }
-  a
-end
-
-if $0 == __FILE__
-  argv = ['3時間', '"b"', '8c', '9']
-  puts args(argv)
+  a.length > 0 ? a : ['xxxxx']
 end

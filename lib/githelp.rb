@@ -27,7 +27,7 @@ def githelp(pat)
 
   g = ExpandRuby::Generator.new # re_expandのジェネレータ
   entries.each { |entry|
-    g.add entry[0], entry[1]
+    g.add entry[0], entry[1] if entry
   }
   res = g.generate pat
   listed = {}
