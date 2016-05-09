@@ -17,8 +17,8 @@
     'git branch -d #{$1}'
   ],
   [
-    "「xyz」ブランチを作成する",
-    '# git branch xyz'
+    "「(#{params.join('|')})」ブランチを作成する",
+    'git branch #{$1}'
   ],
 ] +
 if params.length > 0
