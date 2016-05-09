@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 class GitHelpTest < Minitest::Test
   def test_onehour
@@ -7,7 +7,7 @@ class GitHelpTest < Minitest::Test
       assert a[0] =~ /1時間/
     }
   end
-
+  
   def test_diff
     githelp(" 比較 ").each { |a|
       assert a[1] =~ /diff/

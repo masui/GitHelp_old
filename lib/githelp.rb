@@ -6,6 +6,7 @@ $libdir = File.dirname(__FILE__)
 require "#{$libdir}/files"
 require "#{$libdir}/args"
 require "#{$libdir}/params"
+require "#{$libdir}/numbers"
 require "#{$libdir}/branches"
 require "#{$libdir}/changes"
 require "#{$libdir}/glossary"

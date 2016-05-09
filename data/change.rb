@@ -2,7 +2,7 @@
 
 [
   [
-    "「(#{files.join('|')})」ファイルを#{mins}分前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
+    "「(#{files.join('|')})」ファイルを(#{mins})分前(のものと比較する|から(変化した|変わった)ところを(表示する|見る))",
     'git log --until="#{$2} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$1}'
   ],
   [
