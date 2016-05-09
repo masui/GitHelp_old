@@ -12,47 +12,20 @@
 # 変更されたファイルをすべてコミットする
 # 変更されたファイルをリストする
 
-require 're_expand'
 progpath = $0
 if File.symlink?(progpath)
   progpath = File.readlink(progpath)
 end
 progdir = "#{File.dirname(progpath)}"
 
-require "#{progdir}/lib/files"
+require "#{progdir}/lib/githelp"
 require "#{progdir}/lib/args"
-require "#{progdir}/lib/params"
-require "#{progdir}/lib/branches"
-require "#{progdir}/lib/changes"
-require "#{progdir}/lib/glossary"
 
-datadir = "#{progdir}/data"
+list = githelp progdir, " #{args.join(' ')} "
 
-pat = " #{args.join(' ')} "
-
-entries = []
-Dir.open(datadir).each { |file|
-  next unless File.file?("#{datadir}/#{file}")
-  next if file !~ /\.rb$/
-  a = eval File.read("#{datadir}/#{file}")
-  entries += a if a
-}
-
-g = ExpandRuby::Generator.new # re_expandのジェネレータ
-entries.each { |entry|
-  g.add entry[0], entry[1]
-}
-
-list = []
-ind = 0
-res = g.generate pat
-res[0].each { |a| # ambig 0
-  unless list.member?(a[1])
-    puts "[#{ind}] #{a[0]}"
-    puts "   " + a[1]
-    list[ind] = a[1]
-    ind += 1
-  end
+list.each_with_index { |entry,ind|
+  puts "[#{ind}] #{entry[0]}"
+  puts "   " + entry[1]
 }
 
 if list.length > 0 then
@@ -61,12 +34,10 @@ if list.length > 0 then
   if s =~ /[0-9]/ then
     i = s.to_i
     if i >= 0 && i < list.length then
-      cmd = list[i]
+      cmd = list[i][1]
       puts cmd
       system "PATH=$PATH:#{progdir}/bin; (#{cmd})"
     end
   end
 end
-
-
 
