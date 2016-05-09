@@ -2,15 +2,19 @@
 
 require 're_expand'
 
-def githelp(progdir, pat)
-  require "#{progdir}/lib/files"
-  require "#{progdir}/lib/args"
-  require "#{progdir}/lib/params"
-  require "#{progdir}/lib/branches"
-  require "#{progdir}/lib/changes"
-  require "#{progdir}/lib/glossary"
+$libdir = File.dirname(__FILE__)
+require "#{$libdir}/files"
+require "#{$libdir}/args"
+require "#{$libdir}/params"
+require "#{$libdir}/branches"
+require "#{$libdir}/changes"
+require "#{$libdir}/glossary"
 
-  datadir = "#{progdir}/data"
+#
+# パタンを指定してコマンド候補リストを得る
+#
+def githelp(pat)
+  datadir = "#{$libdir}/../data"
 
   entries = []
   Dir.open(datadir).each { |file|

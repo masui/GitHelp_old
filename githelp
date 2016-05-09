@@ -19,10 +19,8 @@ end
 progdir = "#{File.dirname(progpath)}"
 
 require "#{progdir}/lib/githelp"
-require "#{progdir}/lib/args"
 
-list = githelp progdir, " #{args.join(' ')} "
-
+list = githelp(" #{args.join(' ')} ")
 list.each_with_index { |entry,ind|
   puts "[#{ind}] #{entry[0]}"
   puts "   " + entry[1]
