@@ -1,6 +1,10 @@
 # coding: utf-8
 [
   [
+    "「(#{branches.join('|')})」ブランチの最新状態に移動する",
+    'git checkout #{$1} '
+  ],
+  [
     "最新の状態に戻す",
     'git checkout #{branch}'
   ],

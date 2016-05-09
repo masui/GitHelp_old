@@ -9,10 +9,6 @@
     "git branch"
   ],
   [
-    "「(#{branches.join('|')})」ブランチに移動する",
-    'git checkout #{$1}'
-  ],
-  [
     "「(#{branches.join('|')})」ブランチを削除する",
     'git branch -d #{$1}'
   ],
