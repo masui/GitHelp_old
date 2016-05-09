@@ -4,8 +4,8 @@ Gitの難しいコマンドを簡単に指定する
 
 ### 解決したい問題
 
-* Gitの使い方がさっぱりわからないこと
-* ちょっとしたことでもどうコマンドを使えば良いのかわからないこと
+* Gitの使い方や引数指定方法がさっぱりわからないこと
+* ちょっとしたことでもどうコマンドを組み合わせれば良いのかわからないこと
 
 以下のような処理をGitでどうやって実行するかを教えてくれる
 
@@ -16,10 +16,10 @@ Gitの難しいコマンドを簡単に指定する
 
 ### 利用例
 
-* 「example 3 変化」のような文字列を指定して```githelp```コマンドを起動すると以下のような解が提示される
+* ```example``` ```3日``` ```変化``` のような引数を指定して```githelp```コマンドを起動すると以下のような解が提示される
 
 ```
-% githelp example 3 変化
+% githelp example 3日 変化
 (1) example.txtの3日前からの変化を調べる
 git log --since='3 days ago' --oneline \
 | tail -1 | ruby -lane 'puts $_.split(/ /).first' \
@@ -28,11 +28,13 @@ git log --since='3 days ago' --oneline \
 ....
 %
 ```
+* 番号を選んで即座に実行可能
 
 
 ### 実装
 
 * [ExpandHelp](https://github.com/masui/expand_ruby)を利用
+* [ExpandHelp論文](http://www.interaction-ipsj.org/archives/paper2012/data/Interaction2012/oral/data/pdf/12INT012.pdf)
 * [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に問題パタンと解決コマンドを書く
 
 ### インストール
