@@ -30,7 +30,7 @@ list.each_with_index { |entry,ind|
   puts "   % " + entry[1]
 }
 
-if ARGV.length > 0 && interactive then
+if interactive then
   if list.length > 0 then
     print "実行するコマンドの番号を入力して下さい > "
     s = STDIN.readline
