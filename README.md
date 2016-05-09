@@ -21,7 +21,6 @@ Gitの難しいコマンドを簡単に指定する
 
 ```
 $ githelp README 8時間 比較
-/Users/masui/GitHelp/lib/branches.rb:4: warning: Insecure world writable dir /tmp in PATH, mode 041777
 [0] 「README.md」ファイルを8時間前のものと比較する
    git log --until="8 hours ago" --oneline | head -1 | awk '{print $1}' | xargs -J xxx git diff xxx README.md
 [1] 「README.md」ファイルを18時間前のものと比較する
