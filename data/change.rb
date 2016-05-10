@@ -67,26 +67,26 @@
   #######
   [
     "(#{numbers.join('|')})分前から(変化した|変わった|変更された)ファイルをリストする",
-    'changed \'#{$1} minutes ago\''
+    'git-changed \'#{$1} minutes ago\''
   ],
   [
     "(#{numbers.join('|')})時間前から(変化した|変わった|変更された)ファイルをリストする",
-    'changed \'#{$1} hours ago\''
+    'git-changed \'#{$1} hours ago\''
   ],
   [
     "(#{numbers.join('|')})日前から(変化した|変わった|変更された)ファイルをリストする",
-    'changed \'#{$1} days ago\''
+    'git-changed \'#{$1} days ago\''
   ],
   [
     "(#{numbers.join('|')})分前から(変化してない|変わってない|変わらない|変更されてない)ファイルをリストする",
-    'unchanged \'#{$1} minutes ago\''
+    'git-unchanged \'#{$1} minutes ago\''
   ],
   [
     "(#{numbers.join('|')})時間前から(変化してない|変わってない|変わらない|変更されてない)ファイルをリストする",
-    'unchanged \'#{$1} hours ago\''
+    'git-unchanged \'#{$1} hours ago\''
   ],
   [
     "(#{numbers.join('|')})日前から(変化してない|変わってない|変わらない|変更されてない)ファイルをリストする",
-    'unchanged \'#{$1} days ago\''
+    'git-unchanged \'#{$1} days ago\''
   ],
 ]
