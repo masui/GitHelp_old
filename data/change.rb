@@ -39,15 +39,15 @@ patterns != ['##PATTERN##'] ?
       'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
     ],
     [
-      "(#{numbers.join('|')})分前からの「(#{files.join('|')})」ファイル(の変化|が変わったところ)を(表示する|見る)",
+      "(#{numbers.join('|')})分前からの「(#{files.join('|')})」ファイル(の変化|が(変わった|変更された)ところ)を(表示する|見る)",
       'git log --until="#{$1} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
     ],
     [
-      "(#{numbers.join('|')})時間前からの「(#{files.join('|')})」ファイル(の変化|が変わったところ)を(表示する|見る)",
+      "(#{numbers.join('|')})時間前からの「(#{files.join('|')})」ファイル(の変化|が(変わった|変更された)ところ)を(表示する|見る)",
       'git log --until="#{$1} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
     ],
     [
-      "(#{numbers.join('|')})日前からの「(#{files.join('|')})」ファイル(の変化|が変わったところ)を(表示する|見る)",
+      "(#{numbers.join('|')})日前からの「(#{files.join('|')})」ファイル(の変化|が(変わった|変更された)ところ)を(表示する|見る)",
       'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git diff xxx #{$2}'
     ],
     [
