@@ -5,3 +5,6 @@
 * stash
 * 3回以上コミットされたファイルをリストする
 
+* 2時間前のをcatする
+  git cat-file -p "@{2 hours ago}":README.md
+  こんなの覚えてられるワケないだろ!
