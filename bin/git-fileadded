@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+filename = ARGV[0]
+
+commit = nil
+res = 'notfound'
+
+`git log --name-status --oneline`.split(/\n/).each { |line|
+  if line =~ /^([0-9a-f]{7})/
+    commit = $1
+  else
+    line.chomp!
+    a = line.split(/\s+/)
+    if a[1] == filename
+      res = commit
+    end
+  end
+}
+
+puts res

@@ -19,5 +19,9 @@
   [
     "(#{numbers.join('|')})日前の状態に一時的に戻す",
     'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git checkout xxx'
-  ]
+  ],
+  [
+    "(#{files.join('|')})が追加されたコミットに一時的に戻す",
+    'git-fileadded #{$1} | xargs git checkout'
+  ],
 ]
