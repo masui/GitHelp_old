@@ -18,4 +18,8 @@ res = 'notfound'
   end
 }
 
-puts res
+if ARGV[1] == 'range'
+  puts "#{res}^..#{res}"
+else
+  puts res
+end
