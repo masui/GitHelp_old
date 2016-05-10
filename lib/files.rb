@@ -3,12 +3,19 @@
 # 見えるファイル名のリストを作る
 #
 
-# ディレクトリの下も見るべき
-# git ls-files で取得すべきか?
-
-def files
-  if ARGV.length > 0
-    `git ls-files`.split
+def files(argv=ARGV)
+  #
+  # 引数の中にファイル名とマッチするものがあればファイルリストを取得
+  #
+  list = `git ls-files`.split(/\n/)
+  matched = false
+  list.each { |file|
+    args.each { |arg|
+      matched = true if file.match arg
+    }
+  }
+  if argv.length > 0 && matched
+    list
   else
     ['##DUMMYFILE##']
   end
