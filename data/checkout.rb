@@ -10,15 +10,15 @@
   ],
   [
     "(#{numbers.join('|')})分前の状態に一時的に戻す",
-    'git log --until="#{$1} minutes ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git checkout xxx'
+    'git checkout "@{#{$1} minutes ago}"'
   ],
   [
     "(#{numbers.join('|')})時間前の状態に一時的に戻す",
-    'git log --until="#{$1} hours ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git checkout xxx'
+    'git checkout "@{#{$1} hour ago}"'
   ],
   [
     "(#{numbers.join('|')})日前の状態に一時的に戻す",
-    'git log --until="#{$1} days ago" --oneline | head -1 | awk \'{print $1}\' | xargs -J xxx git checkout xxx'
+    'git checkout "@{#{$1} days ago}"'
   ],
   [
     "(#{files.join('|')})が追加されたコミットに一時的に戻す",
