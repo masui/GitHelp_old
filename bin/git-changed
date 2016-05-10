@@ -6,6 +6,7 @@ progpath = File.expand_path(progpath)
 progdir = "#{File.dirname(progpath)}"
 
 require "#{progdir}/../lib/files"
+require "#{progdir}/../lib/args"
 require "#{progdir}/../lib/changes"
 
 puts changed(ARGV[0])

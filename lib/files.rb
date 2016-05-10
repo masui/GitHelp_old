@@ -3,7 +3,7 @@
 # 見えるファイル名のリストを作る
 #
 
-def files(argv=ARGV)
+def files(force=false, argv=ARGV)
   #
   # 引数の中にファイル名とマッチするものがあればファイルリストを取得
   #
@@ -14,7 +14,7 @@ def files(argv=ARGV)
       matched = true if file.match arg
     }
   }
-  if argv.length > 0 && matched
+  if (argv.length > 0 && matched) || force
     list
   else
     ['##DUMMYFILE##']
