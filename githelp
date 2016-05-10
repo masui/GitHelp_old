@@ -25,9 +25,11 @@ end
 require "#{progdir}/lib/githelp"
 
 list = githelp(" #{args.join(' ')} ")
-list.each_with_index { |entry,ind|
-  puts "[#{ind}] #{entry[0]}"
-  puts "   % " + entry[1]
+IO.popen("more","w"){ |f|
+  list.each_with_index { |entry,ind|
+    f.puts "[#{ind}] #{entry[0]}"
+    f.puts "   % " + entry[1]
+  }
 }
 
 if interactive then
