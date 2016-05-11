@@ -14,7 +14,7 @@
   ],
   [
     "(#{numbers.join('|')})時間前の状態に一時的に戻す",
-    'git checkout "@{#{$1} hour ago}"'
+    'git checkout "@{#{$1} hours ago}"'
   ],
   [
     "(#{numbers.join('|')})日前の状態に一時的に戻す",
