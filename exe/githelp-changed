@@ -1,12 +1,9 @@
 #!/usr/bin/env ruby
 # coding: utf-8
 
-progpath = $0
-progpath = File.expand_path(progpath)
-progdir = "#{File.dirname(progpath)}"
+require "bundler/setup"
+require "githelp"
 
-require "#{progdir}/../lib/files"
-require "#{progdir}/../lib/args"
-require "#{progdir}/../lib/changes"
+include Githelp
 
 puts changed(ARGV[0])
