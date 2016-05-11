@@ -10,6 +10,7 @@
 以下のような処理をGitでどうやって実行するかを教えてくれる
 
 * example.txtは3日前からどう変わった?
+* 3日前のexample.txtを見たい
 * package.jsonからcoffeeという名前が消えたのはいつ?
 * ここ1週間ぐらい変更されてないファイルは?
 * 最近最も大量に修正したファイルはどれだっけ?
@@ -51,6 +52,7 @@ index 862f185..34c8907 100644
 ```
 
 * ```-i``` オプションを指定すると対話的に選択できる
+* 引数なしで```githelp```を起動するとリストが表示される
 
 
 ### 実装
@@ -58,6 +60,7 @@ index 862f185..34c8907 100644
 * [ExpandHelp](https://github.com/masui/expand_ruby)を利用
 * [ExpandHelp論文](http://www.interaction-ipsj.org/archives/paper2012/data/Interaction2012/oral/data/pdf/12INT012.pdf)
 * [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に問題パタンと解決コマンドを書く
+   * ワンライナーで無理な場合は ```bin``` の下にコマンドを用意する
 
 ### インストール
 
