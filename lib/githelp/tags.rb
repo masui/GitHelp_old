@@ -8,7 +8,11 @@ module Githelp
     #
     # 引数の中にタグ名とマッチするものがあればタグリストを取得
     #
-    list = `git tag`.split(/\n/)
+    list = begin
+             `git tag`.split(/\n/)
+           rescue
+             []
+           end
     matched = false
     list.each { |tag|
       args.each { |arg|

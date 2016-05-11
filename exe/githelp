@@ -15,6 +15,11 @@ require "githelp"
 
 include Githelp
 
+unless git_check
+  STDERR.puts "Use 'githelp' in a Git repository."
+  exit
+end
+
 progpath = $0
 if File.symlink?(progpath)
   progpath = File.readlink(progpath)

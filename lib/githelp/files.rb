@@ -7,7 +7,11 @@ def files(force=false, argv=ARGV)
   #
   # 引数の中にファイル名とマッチするものがあればファイルリストを取得
   #
-  list = `git ls-files`.split(/\n/)
+  list = begin
+           `git ls-files`.split(/\n/)
+         rescue
+           []
+         end
   matched = false
   list.each { |file|
     args.each { |arg|

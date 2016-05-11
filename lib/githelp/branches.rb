@@ -1,21 +1,39 @@
 # coding: utf-8
 
 module Githelp
+  def git_branch
+    begin
+      `git branch`
+    rescue
+      nil
+    end
+  end
+  
   def branches
-    `git branch`.split(/\n/).map { |line|
-      line.chomp!
-      line.sub(/^../,'')
-    }
+    b = git_branch
+    if b
+      b.split(/\n/).map { |line|
+        line.chomp!
+        line.sub(/^../,'')
+      }
+    else
+      [ '##BRANCH##' ]
+    end
   end
   
   def branch
-    `git branch`.split(/\n/).map { |line|
-      line.chomp!
-      if line =~ /^\* (.*)$/ then
-        return $1
-      end
-    }
-    ''
+    b = git_branch
+    if b
+      b.split(/\n/).map { |line|
+        line.chomp!
+        if line =~ /^\* (.*)$/ then
+          return $1
+        end
+      }
+      ''
+    else
+      ''
+    end
   end
 end
 

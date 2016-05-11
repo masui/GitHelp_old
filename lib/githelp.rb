@@ -12,6 +12,7 @@ require "githelp/numbers"
 require "githelp/branches"
 require "githelp/changes"
 require "githelp/glossary"
+require "githelp/git_check"
 
 module Githelp
   #
