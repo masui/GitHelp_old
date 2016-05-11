@@ -8,7 +8,7 @@ if params.length > 0
   [
     [
       "最初に「(#{params.join('|')})」という文字列を含むコミットをした時から現在までに追加されたファイルはどれとどれ？",
-      'git log --oneline --date=iso-strict --format=\'%cd %s\' | grep #{$1} | tail -1 | awk \'{print $1}\' | xargs git-changed '
+      'git log --oneline --date=iso-strict --format=\'%cd %s\' | grep #{$1} | tail -1 | awk \'{print $1}\' | xargs githelp-changed '
     ],
   ]
 else

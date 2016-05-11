@@ -1,3 +1,6 @@
 source 'https://rubygems.org'
-gem "re_expand"
+
+# Specify your gem's dependencies in githelp.gemspec
+gemspec
+
 

@@ -10,6 +10,11 @@
 
 # 追加すべきデータはdata.txtに書く
 
+require "bundler/setup"
+require "githelp"
+
+include Githelp
+
 progpath = $0
 if File.symlink?(progpath)
   progpath = File.readlink(progpath)
@@ -38,8 +43,6 @@ ARGV.dup.each { |arg|
   end
 }
 
-require "#{progdir}/lib/githelp"
-
 list = githelp(" #{args.join(' ')} ")
 if opt_x then
   cmd = list[opt_x][1]
@@ -53,7 +56,6 @@ else
     }
   }
 end
-
 
 if opt_i then
   if list.length > 0 then

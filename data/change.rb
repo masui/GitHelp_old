@@ -70,26 +70,26 @@ patterns != ['##PATTERN##'] ?
       [
         [
           "(#{numbers.join('|')})分前から(変化した|変わった|変更された)ファイルをリストする",
-          'git-changed \'#{$1} minutes ago\''
+          'githelp-changed \'#{$1} minutes ago\''
         ],
         [
           "(#{numbers.join('|')})時間前から(変化した|変わった|変更された)ファイルをリストする",
-          'git-changed \'#{$1} hours ago\''
+          'githelp-changed \'#{$1} hours ago\''
         ],
         [
           "(#{numbers.join('|')})日前から(変化した|変わった|変更された)ファイルをリストする",
-          'git-changed \'#{$1} days ago\''
+          'githelp-changed \'#{$1} days ago\''
         ],
         [
           "(#{numbers.join('|')})分前から(変化してない|変わってない|変わらない|変更されてない)ファイルをリストする",
-          'git-unchanged \'#{$1} minutes ago\''
+          'githelp-unchanged \'#{$1} minutes ago\''
         ],
         [
           "(#{numbers.join('|')})時間前から(変化してない|変わってない|変わらない|変更されてない)ファイルをリストする",
-          'git-unchanged \'#{$1} hours ago\''
+          'githelp-unchanged \'#{$1} hours ago\''
         ],
         [
           "(#{numbers.join('|')})日前から(変化してない|変わってない|変わらない|変更されてない)ファイルをリストする",
-          'git-unchanged \'#{$1} days ago\''
+          'githelp-unchanged \'#{$1} days ago\''
         ],
       ]

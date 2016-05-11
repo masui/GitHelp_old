@@ -1,3 +1,0 @@
-test:
-	ruby test.rb
-

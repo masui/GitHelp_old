@@ -22,6 +22,6 @@
   ],
   [
     "(#{files.join('|')})が追加されたコミットに一時的に戻す",
-    'git-fileadded #{$1} | xargs git checkout'
+    'githelp-fileadded #{$1} | xargs git checkout'
   ],
 ]

@@ -1,5 +1,9 @@
 # coding: utf-8
 
+require 'test_helper'
+
+include Githelp
+
 class GitHelpTest < Minitest::Test
   def test_onehour
     githelp(" 1時間 ").each { |a|
