@@ -2,11 +2,12 @@
 
 module Githelp
   def git_check
+    res = nil
     begin
-      `git log`
+      res = `git log`
     rescue
-      false
     end
+    res != ''
   end
 end
   
