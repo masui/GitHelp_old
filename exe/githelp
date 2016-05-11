@@ -51,6 +51,7 @@ ARGV.dup.each { |arg|
 list = githelp(" #{args.join(' ')} ")
 if opt_x then
   cmd = list[opt_x][1]
+  STDERR.puts cmd
   system "PATH=$PATH:#{progdir}/bin; (#{cmd})"
   exit
 else
@@ -70,7 +71,7 @@ if opt_i then
       i = s.to_i
       if i >= 0 && i < list.length then
         cmd = list[i][1]
-        puts cmd
+        STDERR.puts cmd
         system "PATH=$PATH:#{progdir}/bin; (#{cmd})"
       end
     end
