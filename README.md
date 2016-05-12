@@ -60,7 +60,17 @@ index 862f185..34c8907 100644
 
 * [re_expand](https://github.com/masui/expand_ruby)
 という正規表現展開ライブラリを利用
-* [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に**問題パタン**と**解決コマンド**を書く
+* [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に**問題パタン**と**解決コマンド**を並べたものを用意しておく
+
+```
+[
+  "「(#{files.join('|')})」ファイルを(#{numbers.join('|')})分前の(もの|バージョン)と比較する",
+  'git diff HEAD "@{#{$2} minutes ago}" #{$1}'
+],
+```
+
+* ファイル名にマッチする引数(e.g. ```README```)や
+数字にマッチする引数(e.g. ```8```)が指定されると1行目の記述にマッチすることになる
 * ワンライナーでは難しい場合は [```exe```](https://github.com/masui/GitHelp/tree/master/exe) の下にヘルパーコマンドを用意する (e.g. [```exe/githelp-changed```](https://github.com/masui/GitHelp/tree/master/exe/githelp-changed) )
 
 ### 議論
