@@ -99,5 +99,6 @@ githelpはコマンドラインから使えるし、
 
 ### お願い
 
-* [データ](https://github.com/masui/GitHelp/tree/master/data)が全然足りないので、足すべきデータを教えて下さい
+* [データ](https://github.com/masui/GitHelp/tree/master/data)が全然足りないので、足すべきデータを教えて下さい。
+issueでもプルリクでも@masuiへのツイートでもいいです。
 
