@@ -102,3 +102,7 @@ githelpはコマンドラインから使えるし、
 * [データ](https://github.com/masui/GitHelp/tree/master/data)が全然足りないので、足すべきデータを教えて下さい。
 issueでもプルリクでも@masuiへのツイートでもいいです。
 
+### 注意
+
+* Gitリポジトリのディレクトリで実行して下さい
+* [re_expand](https://github.com/masui/expand_ruby)の実装が富豪的なので大きなリポジトリだと不具合があるかもしれません
