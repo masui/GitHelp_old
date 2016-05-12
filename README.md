@@ -4,20 +4,20 @@
 
 ### 解決したい問題
 
-* Gitの使い方や引数指定方法がさっぱりわからない
+* Gitの使い方や引数指定方法がさっぱりわからないこと
 * コマンドをどう組み合せれば良いのかわからないこと
 
-例えば、以下のような処理をGitでどう実行するか知りたい
+たとえば以下のような処理をGitでどう実行するか知りたい
 
-* example.txtは3日前からどう変わった?
-* 3日前のexample.txtを見たい
+* README.mdは3日前からどう変わった?
+* 3日前のREADME.mdを見たい
 * package.jsonからcoffeeという名前が消えたのはいつ?
 * ここ1週間ぐらい変更されてないファイルは?
 * 最近最も大量に修正したファイルはどれだっけ?
 
 ### 利用例
 
-* ```README``` ```8``` ```比較``` のような引数を指定して```githelp```コマンドを起動すると以下のような候補が提示される
+* ```README``` ```8``` ```比較``` のような引数を指定して```githelp```コマンドを起動すると以下のような候補リストが提示される
 
 ```
 $ githelp README 8 比較
@@ -50,28 +50,32 @@ index 862f185..34c8907 100644
 
 * ```-i``` オプションを指定すると対話的に選択できる
 
-### 実装
-
-* [re_expand](https://github.com/masui/expand_ruby)
-という正規表現展開ライブラリを利用
-* [ExpandHelp](http://www.interaction-ipsj.org/archives/paper2012/data/Interaction2012/oral/data/pdf/12INT012.pdf) : [re_expand](https://github.com/masui/expand_ruby)のオンラインヘルプへの応用
-* [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に**問題パタン**と**解決コマンド**を書く
-* ワンライナーで無理な場合は [```exe```](https://github.com/masui/GitHelp/tree/master/exe) の下にヘルパーコマンドを用意する (e.g. [```exe/githelp-changed```](https://github.com/masui/GitHelp/tree/master/exe/githelp-changed) )
-
 ### インストール
 
 ```
 % gem install githelp
 ```
 
+### 実装
+
+* [re_expand](https://github.com/masui/expand_ruby)
+という正規表現展開ライブラリを利用
+* [ExpandHelp](http://www.interaction-ipsj.org/archives/paper2012/data/Interaction2012/oral/data/pdf/12INT012.pdf) : [re_expand](https://github.com/masui/expand_ruby)のオンラインヘルプへの応用
+* [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に**問題パタン**と**解決コマンド**を書く
+* ワンライナーでは難しい場合は [```exe```](https://github.com/masui/GitHelp/tree/master/exe) の下にヘルパーコマンドを用意する (e.g. [```exe/githelp-changed```](https://github.com/masui/GitHelp/tree/master/exe/githelp-changed) )
+
 ### 議論
 
-* オンラインヘルプは役にたたないものと思われているが、このような方式ならなんとかなるかもしれない
+* オンラインヘルプは役にたたないものと思われているが、このような方式ならなんとかなるかもしれない。
 * 人工知能的なアプローチの方がトレンドかもしれないが、本方式だと
 自分が何をやりたいのかはっきりわかってない場合でも使えるし、
-正しいセンテンスを正確に言う必要がないから楽だと思う
-* たとえば ```githelp 削除``` と言えば削除関連で何ができるのかわかる
-* Gitは単なる適用例であり、広い範囲で使いたいと思っている
+正しいセンテンスを正確に入力したり発声したりする必要がないから楽だと思う。
+(予測入力的アプローチ)
+* たとえば ```githelp 削除``` と言えば削除関連で何ができるのかわかる。
+* たいていのヘルプシステムは、何かを実行する方法を教えてくれるかもしれないが
+本当に実行してくれるわけではないので
+二度手間になる。
+* **Gitは単なる適用例であり、広い範囲で使いたいと思っている。**
 
 ### お願い
 
