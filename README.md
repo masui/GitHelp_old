@@ -4,10 +4,10 @@
 
 ### 解決したい問題
 
-* Gitの使い方や引数指定方法がさっぱりわからないこと
-* ちょっとしたことでもどうコマンドを組み合わせれば良いのかわからないこと
+* Gitの使い方や引数指定方法がさっぱりわからない
+* コマンドをどう組み合せれば良いのかわからないこと
 
-以下のような処理をGitでどうやって実行するかを教えてくれる
+例えば、以下のような処理をGitでどう実行するか知りたい
 
 * example.txtは3日前からどう変わった?
 * 3日前のexample.txtを見たい
@@ -30,7 +30,7 @@ $ githelp README 8 比較
 $
 ```
 
-* ```-x``` オプションで数字を指定すると実行できる
+* ```-x``` オプションで```2```のような数字を指定すると実行できる
 
 
 ```
@@ -45,22 +45,18 @@ index 862f185..34c8907 100644
 -**Gitのコマンドの使いこなしを支援する**
 -
 -### 解決したい問題
--
--* Gitの使い方や引数指定方法がさっぱりわからないこと
--* ちょっとしたことでもどうコマンドを組み合わせれば良いのかわからないこと
 ...
 ```
 
 * ```-i``` オプションを指定すると対話的に選択できる
-* 引数なしで```githelp```を起動するとリストが表示される
-
 
 ### 実装
 
-* [re_expand](https://github.com/masui/expand_ruby)を利用
-* [ExpandHelp論文](http://www.interaction-ipsj.org/archives/paper2012/data/Interaction2012/oral/data/pdf/12INT012.pdf)
-* [```data/```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に問題パタンと解決コマンドを書く
-   * ワンライナーで無理な場合は ```exe/``` の下にコマンドを用意する
+* [re_expand](https://github.com/masui/expand_ruby)
+という正規表現展開ライブラリを利用
+* [ExpandHelp](http://www.interaction-ipsj.org/archives/paper2012/data/Interaction2012/oral/data/pdf/12INT012.pdf) : [re_expand](https://github.com/masui/expand_ruby)のオンラインヘルプへの応用
+* [```data```](https://github.com/masui/GitHelp/tree/master/data)ディレクトリの下に**問題パタン**と**解決コマンド**を書く
+* ワンライナーで無理な場合は [```exe```](https://github.com/masui/GitHelp/tree/master/exe) の下にヘルパーコマンドを用意する (e.g. [```exe/githelp-changed```](https://github.com/masui/GitHelp/tree/master/exe/githelp-changed) )
 
 ### インストール
 
@@ -68,15 +64,16 @@ index 862f185..34c8907 100644
 % gem install githelp
 ```
 
-### お願い
+### 議論
 
-データが全然足りないので、足すべきデータがあればお願いいたします。(プルリク希望)
-
-### 考察
-
-* ヘルプはSiriみたいなのでやるのがトレンドかもしれないが、
+* オンラインヘルプは役にたたないものと思われているが、このような方式ならなんとかなるかもしれない
+* 人工知能的なアプローチの方がトレンドかもしれないが、本方式だと
 自分が何をやりたいのかはっきりわかってない場合でも使えるし、
 正しいセンテンスを正確に言う必要がないから楽だと思う
 * たとえば ```githelp 削除``` と言えば削除関連で何ができるのかわかる
-* Gitは単なる適用例であり、応用範囲は広い
+* Gitは単なる適用例であり、広い範囲で使いたいと思っている
+
+### お願い
+
+* [データ](https://github.com/masui/GitHelp/tree/master/data)が全然足りないので、足すべきデータを教えて下さい
 
