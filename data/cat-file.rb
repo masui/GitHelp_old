@@ -12,4 +12,8 @@
     "(#{numbers.join('|')})日前の「(#{files.join('|')})」ファイルを(表示する|見る)",
     'git cat-file -p "@{#{$1} days ago}":#{$2}'
   ],
+  [
+    "昨日の「(#{files.join('|')})」ファイルを(表示する|見る)",
+    'git cat-file -p "@{yesterday}":#{$1}'
+  ],
 ]
