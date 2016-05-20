@@ -10,8 +10,8 @@
 
 # 追加すべきデータはdata.txtに書く
 
-require "bundler/setup"
 require "githelp"
+require "bundler/setup"
 
 include Githelp
 
