@@ -116,3 +116,10 @@ issueでもプルリクでも@masuiへのツイートでもいいです。
 
 * Gitリポジトリのディレクトリで実行して下さい
 * [re_expand](https://github.com/masui/expand_ruby)の実装が富豪的なので大きなリポジトリだと不具合があるかもしれません
+
+### 関連システム
+
+* [AnyCode](http://dl.acm.org/citation.cfm?id=2814295)
+
+  * 自然言語キーワードからJavaスニペットを検索する
+  * ```copy fileA fileB``` みたいなキーワードから ```FileUtil.copyFile(new File(fileA), new File(fileB))``` みたいなコード候補を生成する
